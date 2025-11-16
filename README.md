@@ -81,3 +81,16 @@ This project is a simple API for CRUD products using Dapper in ASP.NET Core. Dap
   ```
   No content on success (HTTP status 204)
   ```
+
+# 🔐 Connection String Encryption (AES-256)
+
+Menambahkan **AES-256 encryption** untuk mengamankan connection string** yang disimpan di `appsettings.json`. 
+Dengan cara ini, kredensial database **tidak pernah disimpan dalam bentuk plaintext** di repository.
+
+---
+
+## 1. 🔑 AES Key (32-byte) via Environment Variable
+
+AES key **TIDAK disimpan** di `appsettings.json`.  
+Key  disimpan pada **environment variable**.
+

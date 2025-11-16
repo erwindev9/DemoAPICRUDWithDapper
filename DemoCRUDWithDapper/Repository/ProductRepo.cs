@@ -5,8 +5,14 @@ using System.Data;
 
 namespace DemoCRUDWithDapper.Repository
 {
-    public class ProductRepo(IDbConnection _dbConnection) : IProduct
+    public class ProductRepo  : IProduct
     {
+        private readonly IDbConnection _dbConnection;
+
+        public ProductRepo(IDbConnection dbConnection)
+        {
+            _dbConnection = dbConnection;
+        }
         public async Task<int> AddProductsAsync(Product product)
         {
             var query = "INSERT INTO Products (Name, Price) Values (@Name, @Price)";
